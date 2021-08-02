@@ -1,18 +1,27 @@
 package vrn.tarasovy.intensive.models;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
+import java.util.UUID;
+
+@Data
+@Entity
+@Table(name = "payment")
+@NoArgsConstructor
+@AllArgsConstructor
 public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
+    UUID id;
     @Column
-    Integer paymentValueId;
+    UUID paymentValueId;
     @Column
-    Integer participantId;
-    @Column
-    Integer userId;
+    UUID userId;
+    @OneToOne
+    PaymentValue paymentValue;
+    @OneToOne
+    User user;
 }

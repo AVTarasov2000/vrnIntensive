@@ -7,17 +7,18 @@ import vrn.tarasovy.intensive.enums.Gender;
 import vrn.tarasovy.intensive.enums.Status;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 @Data
 @Entity
-@Table(name = "?", schema = "?")
+@Table(name = "participant")
 @NoArgsConstructor
 @AllArgsConstructor
 public class Participant {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
+    UUID id;
     @Column
     String name;
     @Column
@@ -36,5 +37,13 @@ public class Participant {
     Integer voronezhIntensiveExperience;
     @Column
     String tShirtSize;
+    @Column
+    UUID firstPayment_;
+    @Column
+    UUID secondPayment_;
+    @OneToOne
+    Payment firstPayment;
+    @OneToOne
+    Payment secondPayment;
 
 }
