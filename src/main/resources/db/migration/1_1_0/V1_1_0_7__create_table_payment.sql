@@ -7,11 +7,7 @@ create table payment
             on update cascade on delete set null,
     user_id uuid
         constraint payment_user_id_fk
-            references "user" (id),
-    participant_id uuid
-        constraint payment_participant_id_fk
-            references participant
-            on update cascade on delete set null
+            references "user" (id)
 );
 
 create unique index payment_id_uindex
