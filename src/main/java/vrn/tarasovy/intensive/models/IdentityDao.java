@@ -2,9 +2,11 @@ package vrn.tarasovy.intensive.models;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
 import java.util.UUID;
 
+@MappedSuperclass
 public abstract class IdentityDao implements Serializable{
     @Id
     @GeneratedValue
