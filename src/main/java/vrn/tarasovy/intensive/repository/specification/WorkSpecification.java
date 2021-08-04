@@ -6,7 +6,6 @@ import javax.persistence.criteria.Join;
 import java.time.LocalDate;
 import java.util.UUID;
 
-import static ru.cinimex.npgzp.utils.QueryUtils.toLikeUpperPattern;
 
 @UtilityClass
 public class WorkSpecification {
