@@ -16,6 +16,6 @@ public class UserService {
     @Transactional
     public void addUser(UserDto userDto){
         User user =  new User(userDto.getLogin(), userDto.getPassword(), userDto.getRole());
-        userRepository.save(user);
+//        userRepository.save(user);
     }
 }

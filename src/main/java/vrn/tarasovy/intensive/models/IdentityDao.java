@@ -8,7 +8,6 @@ import java.io.Serializable;
 import java.util.UUID;
 
 @MappedSuperclass
-@Entity
 public abstract class IdentityDao implements Serializable{
     @Id
     @GeneratedValue

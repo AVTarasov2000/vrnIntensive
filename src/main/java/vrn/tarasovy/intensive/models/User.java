@@ -20,7 +20,6 @@ import javax.persistence.EnumType;
 @Setter
 @Entity
 @DynamicInsert
-@MappedSuperclass
 @Table(name = "user")
 @NoArgsConstructor
 @AllArgsConstructor
