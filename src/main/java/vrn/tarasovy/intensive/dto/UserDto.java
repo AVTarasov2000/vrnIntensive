@@ -1,11 +1,16 @@
 package vrn.tarasovy.intensive.dto;
 
-import lombok.Data;
+import lombok.*;
 import vrn.tarasovy.intensive.enums.Role;
 
+import javax.persistence.MappedSuperclass;
 import java.util.UUID;
 
-@Data
+@Getter
+@Setter
+@MappedSuperclass
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserDto extends IdentityDto{
 
     String login;

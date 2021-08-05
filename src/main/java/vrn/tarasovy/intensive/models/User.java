@@ -7,7 +7,12 @@ import lombok.Setter;
 import org.hibernate.annotations.DynamicInsert;
 import vrn.tarasovy.intensive.enums.Role;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.Table;
+import javax.persistence.Column;
+import javax.persistence.Enumerated;
+import javax.persistence.EnumType;
 
 
 

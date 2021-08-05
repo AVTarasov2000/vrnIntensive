@@ -1,23 +1,22 @@
 package vrn.tarasovy.intensive.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.annotations.DynamicInsert;
 
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.UUID;
 
-@Data
+@Getter
+@Setter
 @Entity
+@DynamicInsert
+@MappedSuperclass
 @Table(name = "payment_value")
 @NoArgsConstructor
 @AllArgsConstructor
-public class PaymentValue {
+public class PaymentValue extends IdentityDao{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    UUID id;
     @Column
     Date paymentDate;
     @Column

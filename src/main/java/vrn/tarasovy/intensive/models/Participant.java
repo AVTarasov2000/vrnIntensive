@@ -1,24 +1,23 @@
 package vrn.tarasovy.intensive.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.annotations.DynamicInsert;
 import vrn.tarasovy.intensive.enums.Gender;
 import vrn.tarasovy.intensive.enums.Status;
 
 import javax.persistence.*;
 import java.util.UUID;
 
-@Data
+@Getter
+@Setter
 @Entity
+@DynamicInsert
+@MappedSuperclass
 @Table(name = "participant")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Participant {
+public class Participant extends IdentityDao{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    UUID id;
     @Column
     String name;
     @Column
