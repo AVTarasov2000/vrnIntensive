@@ -16,33 +16,35 @@ import java.util.UUID;
 @Table(name = "participant")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Participant extends IdentityDao{
-
+public class Participant {
+    @Id
+    @GeneratedValue
+    private UUID id;
     @Column
-    String name;
+    private String name;
     @Column
-    String surname;
-    @Column
-    @Enumerated(EnumType.STRING)
-    Gender gender;
-    @Column
-    String phoneNumber;
+    private String surname;
     @Column
     @Enumerated(EnumType.STRING)
-    Status status;
+    private Gender gender;
     @Column
-    Integer intensiveExperience;
+    private String phoneNumber;
     @Column
-    Integer voronezhIntensiveExperience;
+    @Enumerated(EnumType.STRING)
+    private Status status;
     @Column
-    String tShirtSize;
+    private Integer intensiveExperience;
     @Column
-    UUID firstPayment_;
+    private Integer voronezhIntensiveExperience;
     @Column
-    UUID secondPayment_;
+    private String tShirtSize;
+    @Column
+    private UUID firstPayment_;
+    @Column
+    private UUID secondPayment_;
     @OneToOne
     Payment firstPayment;
     @OneToOne
-    Payment secondPayment;
+    private Payment secondPayment;
 
 }

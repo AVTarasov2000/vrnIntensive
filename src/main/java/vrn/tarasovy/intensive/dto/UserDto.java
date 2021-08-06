@@ -1,22 +1,26 @@
 package vrn.tarasovy.intensive.dto;
 
 import lombok.*;
+import org.springframework.data.domain.Persistable;
 import vrn.tarasovy.intensive.enums.Role;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserDto extends IdentityDto{
+public class UserDto implements Persistable <UUID>, Serializable {
 
-    String login;
-    String password;
-    Role role;
+    private static final long serialVersionUID = -652610286635305248L;
+    private UUID id;
+    private String login;
+    private String password;
+    private Role role;
 
     @Override
-    public UUID getId() {
-        return id;
+    public boolean isNew() {
+        return getId()==null;
     }
 }

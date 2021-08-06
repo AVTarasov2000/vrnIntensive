@@ -5,31 +5,34 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.Type;
+import org.hibernate.annotations.TypeDef;
 import vrn.tarasovy.intensive.enums.Role;
+import vrn.tarasovy.intensive.models.types.RolePostgreSQLEnumType;
 
-import javax.persistence.Entity;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.Table;
-import javax.persistence.Column;
-import javax.persistence.Enumerated;
-import javax.persistence.EnumType;
-
+import javax.persistence.*;
+import java.util.UUID;
 
 
 @Getter
 @Setter
 @Entity
 @DynamicInsert
-@Table(name = "user")
+@Table(name = "\"user\"")
 @NoArgsConstructor
 @AllArgsConstructor
-public class User extends IdentityDao{
+@TypeDef(name = "role", typeClass = RolePostgreSQLEnumType.class)
+public class User {
 
+    @Id
+    @GeneratedValue
+    private UUID id;
     @Column
-    String login;
+    private String login;
     @Column
-    String password;
+    private String password;
     @Column
-    @Enumerated(EnumType.STRING)
-    Role role;
+    @Type(type = "role")
+    @Enumerated
+    private Role role;
 }

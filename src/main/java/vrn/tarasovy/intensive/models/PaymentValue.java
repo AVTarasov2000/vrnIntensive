@@ -15,10 +15,13 @@ import java.util.UUID;
 @Table(name = "payment_value")
 @NoArgsConstructor
 @AllArgsConstructor
-public class PaymentValue extends IdentityDao{
+public class PaymentValue {
 
+    @Id
+    @GeneratedValue
+    private UUID id;
     @Column
-    Date paymentDate;
+    private Date paymentDate;
     @Column
-    Integer capacity;
+    private Integer capacity;
 }

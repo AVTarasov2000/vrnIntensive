@@ -33,6 +33,8 @@ dependencies {
     implementation 'org.mapstruct:mapstruct:1.4.2.Final'
     annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.2.Final'
 
+    implementation group: 'com.vladmihalcea', name: 'hibernate-types-55', version: '2.12.1'
+
     implementation 'org.flywaydb:flyway-core'
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'org.postgresql:postgresql'

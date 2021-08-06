@@ -14,14 +14,16 @@ import java.util.UUID;
 @Table(name = "payment")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Payment extends IdentityDao{
-
+public class Payment {
+    @Id
+    @GeneratedValue
+    private UUID id;
     @Column
-    UUID paymentValueId;
+    private UUID paymentValueId;
     @Column
-    UUID userId;
+    private UUID userId;
     @OneToOne
-    PaymentValue paymentValue;
+    private PaymentValue paymentValue;
     @OneToOne
-    User user;
+    private User user;
 }
