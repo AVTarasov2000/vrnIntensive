@@ -32,7 +32,6 @@ public class User {
     @Column
     private String password;
     @Column
-    @Type(type = "role")
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private Role role;
 }
