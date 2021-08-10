@@ -22,8 +22,10 @@ public class Payment {
     private UUID paymentValueId;
     @Column
     private UUID userId;
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "paymentValueId",insertable = false, updatable = false)
     private PaymentValue paymentValue;
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "userId", updatable = false)
     private User user;
 }

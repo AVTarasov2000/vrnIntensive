@@ -38,13 +38,11 @@ public class Participant {
     private Integer voronezhIntensiveExperience;
     @Column
     private String tShirtSize;
-    @Column
-    private UUID firstPayment_;
-    @Column
-    private UUID secondPayment_;
-    @OneToOne
-    Payment firstPayment;
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "firstPayment", updatable = false)
+    private Payment firstPayment;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "secondPayment", updatable = false)
     private Payment secondPayment;
 
 }

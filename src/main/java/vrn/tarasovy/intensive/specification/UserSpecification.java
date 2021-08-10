@@ -1,12 +1,8 @@
-package vrn.tarasovy.intensive.repository.specification;
+package vrn.tarasovy.intensive.specification;
 
 import lombok.experimental.UtilityClass;
 import vrn.tarasovy.intensive.models.User;
 import org.springframework.data.jpa.domain.Specification;
-
-import javax.persistence.criteria.Join;
-import java.time.LocalDate;
-import java.util.UUID;
 
 
 @UtilityClass
