@@ -14,10 +14,7 @@ import java.util.UUID;
 @Table(name = "payment")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Payment {
-    @Id
-    @GeneratedValue
-    private UUID id;
+public class Payment extends Identity{
     @Column
     private UUID paymentValueId;
     @Column

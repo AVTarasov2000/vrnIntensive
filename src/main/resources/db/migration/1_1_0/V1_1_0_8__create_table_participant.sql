@@ -9,7 +9,7 @@ CREATE TABLE participant
     status status,
     intensive_experience INT,
     voronezh_intensive_experience INT,
-    t_shirt_size INT,
+    t_shirt_size VARCHAR,
     first_payment_id uuid
         CONSTRAINT participant_payment_id_fk
             REFERENCES payment

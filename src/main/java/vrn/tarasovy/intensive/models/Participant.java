@@ -16,10 +16,7 @@ import java.util.UUID;
 @Table(name = "participant")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Participant {
-    @Id
-    @GeneratedValue
-    private UUID id;
+public class Participant extends Identity{
     @Column
     private String name;
     @Column

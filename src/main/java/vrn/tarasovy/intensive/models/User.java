@@ -22,11 +22,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @TypeDef(name = "role", typeClass = RolePostgreSQLEnumType.class)
-public class User {
-
-    @Id
-    @GeneratedValue
-    private UUID id;
+public class User extends Identity{
     @Column
     private String login;
     @Column
