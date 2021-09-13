@@ -15,7 +15,6 @@ import java.util.List;
 @Setter
 @Entity
 @DynamicInsert
-@MappedSuperclass
 @Table(name = "participant")
 @NoArgsConstructor
 @AllArgsConstructor

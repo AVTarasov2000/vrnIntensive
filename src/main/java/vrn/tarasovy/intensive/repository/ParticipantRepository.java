@@ -13,7 +13,4 @@ import java.util.UUID;
 @Repository
 public interface ParticipantRepository extends CrudRepository<Participant, UUID>, JpaSpecificationExecutor<Participant> {
 
-    @Query("select par from Participant par where par.firstPayment is null and par.secondPayment is null")
-    List<Participant> findAllWithoutAnyPayment();
-
 }

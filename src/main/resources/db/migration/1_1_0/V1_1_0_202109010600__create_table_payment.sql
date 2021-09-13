@@ -10,13 +10,13 @@ create table payment
     modified_date date,
     delete_date date,
     user_created_id uuid
-        constraint payment_user_id_fk
+        constraint payment_user_created_id_fk
             references "user" (id),
     user_modified_id uuid
-        constraint payment_user_id_fk
+        constraint payment_user_modified_id_fk
             references "user" (id),
     user_deleted_id uuid
-        constraint payment_user_id_fk
+        constraint payment_user_deleted_id_fk
             references "user" (id)
 );
 

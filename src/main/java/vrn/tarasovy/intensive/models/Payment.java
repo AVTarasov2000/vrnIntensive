@@ -9,7 +9,6 @@ import javax.persistence.*;
 @Setter
 @Entity
 @DynamicInsert
-@MappedSuperclass
 @Table(name = "payment")
 @NoArgsConstructor
 @AllArgsConstructor
