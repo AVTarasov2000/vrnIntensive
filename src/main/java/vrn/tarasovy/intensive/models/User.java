@@ -1,5 +1,6 @@
 package vrn.tarasovy.intensive.models;
 
+import com.vladmihalcea.hibernate.type.basic.PostgreSQLEnumType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,10 +9,8 @@ import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 import vrn.tarasovy.intensive.enums.Role;
-import vrn.tarasovy.intensive.models.types.RolePostgreSQLEnumType;
 
 import javax.persistence.*;
-import java.util.UUID;
 
 
 @Getter
@@ -21,7 +20,7 @@ import java.util.UUID;
 @Table(name = "\"user\"")
 @NoArgsConstructor
 @AllArgsConstructor
-@TypeDef(name = "role", typeClass = RolePostgreSQLEnumType.class)
+@TypeDef(name = "role", typeClass = PostgreSQLEnumType.class)
 public class User extends Identity{
     @Column
     private String login;
@@ -29,5 +28,6 @@ public class User extends Identity{
     private String password;
     @Column
     @Enumerated(EnumType.STRING)
+    @Type(type = "role")
     private Role role;
 }

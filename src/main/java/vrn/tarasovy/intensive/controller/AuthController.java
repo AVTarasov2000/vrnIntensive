@@ -63,7 +63,7 @@ public class AuthController {
                     .body("Error: Username is already taken!");
         }
 
-        UserDto user = new UserDto(null, signUpRequest.getLogin(), encoder.encode(signUpRequest.getPassword()), signUpRequest.getRole());
+        UserDto user = new UserDto(signUpRequest.getLogin(), encoder.encode(signUpRequest.getPassword()), signUpRequest.getRole());
         userService.save(user);
 
         return ResponseEntity.ok("User registered successfully!");

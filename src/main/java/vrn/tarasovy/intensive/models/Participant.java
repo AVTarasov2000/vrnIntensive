@@ -1,12 +1,15 @@
 package vrn.tarasovy.intensive.models;
 
+import com.vladmihalcea.hibernate.type.basic.PostgreSQLEnumType;
 import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.Type;
+import org.hibernate.annotations.TypeDef;
 import vrn.tarasovy.intensive.enums.Gender;
 import vrn.tarasovy.intensive.enums.Status;
 
 import javax.persistence.*;
-import java.util.UUID;
+import java.util.List;
 
 @Getter
 @Setter
@@ -16,6 +19,7 @@ import java.util.UUID;
 @Table(name = "participant")
 @NoArgsConstructor
 @AllArgsConstructor
+@TypeDef(name = "status", typeClass = PostgreSQLEnumType.class)
 public class Participant extends Identity{
     @Column
     private String name;
@@ -28,6 +32,7 @@ public class Participant extends Identity{
     private String phoneNumber;
     @Column
     @Enumerated(EnumType.STRING)
+    @Type(type = "status")
     private Status status;
     @Column
     private Integer intensiveExperience;
@@ -35,13 +40,8 @@ public class Participant extends Identity{
     private Integer voronezhIntensiveExperience;
     @Column
     private String tShirtSize;
-    @Column
-    private UUID firstPayment_;
-    @Column
-    private UUID secondPayment_;
-    @OneToOne
-    Payment firstPayment;
-    @OneToOne
-    private Payment secondPayment;
+    @OneToMany
+    @JoinColumn(name = "participant_id")
+    private List <Payment> payments;
 
 }

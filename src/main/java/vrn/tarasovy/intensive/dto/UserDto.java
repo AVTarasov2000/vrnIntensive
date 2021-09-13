@@ -11,10 +11,9 @@ import java.util.UUID;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserDto implements Persistable <UUID>, Serializable {
+public class UserDto extends IdentityDto implements Persistable <UUID>, Serializable{
 
     private static final long serialVersionUID = -652610286635305248L;
-    private UUID id;
     private String login;
     private String password;
     private Role role;

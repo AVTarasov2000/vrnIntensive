@@ -18,5 +18,5 @@ import java.util.UUID;
 public abstract class Identity {
     @Id
     @GeneratedValue
-    UUID id;
+    private UUID id;
 }

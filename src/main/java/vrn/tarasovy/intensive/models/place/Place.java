@@ -17,13 +17,13 @@ import java.util.List;
 public class Place extends Identity {
 
     @Column(name = "price")
-    Integer price;
+    private Integer price;
 
     @Column(name = "number")
-    String number;
+    private String number;
 
     @Column(name = "description")
-    String description;
+    private String description;
 
     @ManyToOne
     @JoinColumn(name = "type_id")
@@ -31,5 +31,5 @@ public class Place extends Identity {
 
     @OneToMany
     @JoinColumn(name = "parent_id")
-    List <Place> children;
+    private List <Place> children;
 }
