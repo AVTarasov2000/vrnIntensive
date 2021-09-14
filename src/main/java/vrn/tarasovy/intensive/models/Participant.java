@@ -1,12 +1,17 @@
 package vrn.tarasovy.intensive.models;
 
 import com.vladmihalcea.hibernate.type.basic.PostgreSQLEnumType;
-import lombok.*;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 import vrn.tarasovy.intensive.enums.Gender;
 import vrn.tarasovy.intensive.enums.Status;
+import vrn.tarasovy.intensive.models.place.Place;
 
 import javax.persistence.*;
 import java.util.List;
@@ -42,5 +47,12 @@ public class Participant extends Identity{
     @OneToMany
     @JoinColumn(name = "participant_id")
     private List <Payment> payments;
+    @OneToMany
+    @JoinTable(
+            name = "participant_place",
+            joinColumns = { @JoinColumn(name = "participant_id") },
+            inverseJoinColumns = { @JoinColumn(name = "place_id") }
+    )
+    private List<Place> places;
 
 }

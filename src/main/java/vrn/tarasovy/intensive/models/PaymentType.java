@@ -6,7 +6,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.DynamicInsert;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Getter
 @Setter
@@ -15,11 +17,7 @@ import javax.persistence.*;
 @Table(name = "payment")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Payment extends Auditable{
-
-    @ManyToOne
-    @JoinColumn(name = "type_id")
-    private Payment type;
-    @Column(name = "capacity")
-    private Integer capacity;
+public class PaymentType extends Identity{
+    @Column(name = "description")
+    String description;
 }

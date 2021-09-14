@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import vrn.tarasovy.intensive.models.Identity;
+import vrn.tarasovy.intensive.models.Participant;
 
 import javax.persistence.*;
 import java.util.List;
